@@ -1,0 +1,53 @@
+﻿Лабораторна робота №4.
+Розробка програм, що розгалужуються.
+Зробив студент КIT 121-г Пташник Максим. 
+Я взяв завдання 16.
+int main() 
+{ 
+int year = 2000; 
+int century; 
+
+if (year % 100 != 0) 
+
+century = year / 100 + 1; 
+
+else 
+
+century = year / 100; 
+
+return 0; 
+}
+
+Точка входу int main().
+Далi я зробив перевiрку в дебагерi.
+Reading symbols from a.out...done. 
+(gdb) l 
+1 //task 16 
+2 
+3 int main() 
+4 { 
+5 int year = 2000; 
+6 int century; 
+7 
+8 if (year % 100 != 0) 
+9 
+10 century = year / 100 + 1; 
+(gdb) l 
+11 
+12 else 
+13 
+14 century = year / 100; 
+15 
+16 
+17 return 0; 
+18 } 
+(gdb) b 17 
+Breakpoint 1 at 0x118e: file lab04.c, line 17. 
+(gdb) r 
+Starting program: /home/maxim/src/a.out 
+
+Breakpoint 1, main () at lab04.c:17 
+17 return 0; 
+(gdb) p century 
+$1 = 20
+Висновок : Я навчився робити програми, що розгалужуються.
