@@ -1,0 +1,46 @@
+﻿Лабораторна робота №6.
+Масиви.
+Зробив студент КIT 121-г Пташник Максим. 
+Я взяв завдання 5.
+//lab06 task 5 
+
+
+int main() 
+{ 
+int a[10] = {5, 10, 3, 65, 96, 23, 43, 92, 100, 58}, i, result = 0; 
+for (i = 0; i < 10; i++) 
+{ 
+result = result + a[i]; 
+} 
+result = result/10; 
+return 0; 
+}
+Точка входу int main().
+Далi я зробив перевiрку в дебагерi.
+Reading symbols from a.out...done. 
+(gdb) l 
+1 //lab06 task 5 
+2 
+3 
+4 
+5 int main() 
+6 { 
+7 int a[10] = {5, 10, 3, 65, 96, 23, 43, 92, 100, 58}, i, result = 0; 
+8 for (i = 0; i < 10; i++) 
+9 { 
+10 result = result + a[i]; 
+(gdb) l 
+11 } 
+12 result = result/10; 
+13 return 0; 
+14 } 
+(gdb) b 13 
+Breakpoint 1 at 0x11b0: file lab06.c, line 13. 
+(gdb) r 
+Starting program: /home/maxim/a.out 
+
+Breakpoint 1, main () at lab06.c:13 
+13 return 0; 
+(gdb) p result 
+$1 = 49
+Висновок:Я навчився робити программи з массивами.
