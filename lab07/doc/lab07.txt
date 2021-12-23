@@ -1,0 +1,176 @@
+﻿Лабораторна робота №7.
+Функції.
+Зробив студент КIT 121-г Пташник Максим. 
+Поперше я переробив програму с лаборотнорної роботи Масиви.
+#include <stdlib.h>
+#include <time.h>
+
+int get_perfect_number( int x){
+  int sum = 0;
+  for(int i = 1; i < x; i++) {
+         if ( x % i == 0){
+                sum += i;
+         }
+        }
+
+         if ( x == sum){
+          return 1;
+         }
+
+         else {
+          return 0;
+         }
+
+}
+int main(int argc, char** argv) {
+
+        int x;
+        int result;
+
+        if (argc == 1){
+            srand (time(NULL));
+            x = (int)random() % 100;
+            result = get_perfect_number(x);
+
+        } else {
+            result = get_perfect_number((int)strtod(argv[1], 0));
+        }
+
+        return 0;
+}
+Далi я зробив перевiрку в дебагерi
+Reading symbols from a.out...done.
+(gdb) l
+12               if ( x == sum){                        
+13                return 1;
+14               }
+15
+16               else {                                
+17                return 0; 
+18               }
+19              
+20      }
+21      int main(int argc, char** argv) {
+(gdb) l
+22
+23              int x;
+24              int result;
+25
+26              if (argc == 1){
+27                  srand (time(NULL));
+28                  x = (int)random() % 100;
+29                  result = get_perfect_number(x);
+30
+31              } else {
+(gdb) l
+32                  result = get_perfect_number((int)strtod(argv[1], 0));
+33              }
+34
+35              return 0;    
+36      }
+37
+(gdb) l
+Line number 38 out of range; main05.c has 37 lines.
+(gdb) b 35
+Breakpoint 1 at 0x1238: file main05.c, line 35.
+(gdb) r
+Starting program: /home/maxim/a.out 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe0e8) at main05.c:35
+35              return 0;    
+(gdb) p result
+$1 = 0
+Далi я зробив програму з циклами.
+#include <stdlib.h>
+#include <time.h>
+#define N 3
+
+void multiply_matrix(int matrix[], int result[], int n){
+    for(int i = 0; i < n; i++){
+       for(int j = 0; j < n; j++){
+        result[i*n+j] = 0;
+        for(int k = 0; k < n; k++){
+            result[i*n+j] += matrix[i*n+k] * matrix[k*n+j];
+         }
+       }
+    }
+}
+
+int main() {
+    int A[N][N];
+    int C[N*N];
+    int result[N*N];
+
+        srand(time(NULL));
+    for (int i = 0; i < N; i++)
+        {
+      for (int j = 0; j < N; j++)
+      {
+                A[i][j] = random() % 10;
+      }
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+      for (int j = 0; j < N; j++)
+      {
+        C[i*N+j] = A[i][j];
+      }
+    }
+
+    multiply_matrix(C, result, N);
+    return 0;
+}
+Далi я зробив перевiрку в дебагерi
+Reading symbols from a.out...done.
+(gdb) l
+7              for(int j = 0; j < n; j++){
+8               result[i*n+j] = 0;
+9               for(int k = 0; k < n; k++){
+10                  result[i*n+j] += matrix[i*n+k] * matrix[k*n+j];      
+11               }
+12             }
+13          }
+14      }
+15
+16      int main() {
+(gdb) l
+17          int A[N][N];
+18          int C[N*N];
+19          int result[N*N];
+20
+21              srand(time(NULL));
+22          for (int i = 0; i < N; i++) 
+23              {
+24            for (int j = 0; j < N; j++) 
+25            {
+26                      A[i][j] = random() % 10;
+(gdb) l
+27            }
+28          }
+29
+30          for (int i = 0; i < N; i++)
+31          {
+32            for (int j = 0; j < N; j++)
+33            {    
+34              C[i*N+j] = A[i][j];
+35            }
+36          }
+(gdb) l
+37
+38          multiply_matrix(C, result, N);
+39          return 0;
+40      }
+(gdb) l
+Line number 41 out of range; main06.c has 40 lines.
+(gdb) b 39
+Breakpoint 1 at 0x1375: file main06.c, line 39.
+(gdb) r
+Starting program: /home/maxim/a.out 
+
+Breakpoint 1, main () at main06.c:39
+39          return 0;
+(gdb) p result
+$1 = {122, 62, 16, 56, 49, 7, 186, 111, 73}
+Висновок:Я навчився працювати з окремими функцiями в С.
+
