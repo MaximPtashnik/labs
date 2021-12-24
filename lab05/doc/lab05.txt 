@@ -1,0 +1,75 @@
+﻿Лабораторна робота №5.
+Циклічні конструкції.
+Зробив студент КIT 121-г Пташник Максим. 
+Я взяв завдання 1.
+Реалiзував завдання за допомогою трьох циклiв
+//lab 05 n = 7 
+int main ()
+{
+        int n, result = 1;
+
+        for(n = 1; n < 8; n++)
+        {
+                result = result * n;
+        }
+        result = 10 * result;
+
+        result = 1;
+        n = 1;
+
+        while(n < 8)
+        {
+         result = n * result;
+         n++;
+        }
+        result = 10 * result;
+
+        result = 1;
+        n = 1;
+
+        do
+        {
+         result = n * result;
+         n++;
+         }
+        while(n < 8);
+        result = 10 * result;
+
+        return 0;
+}
+
+Точка входу int main().
+Далi я зробив перевiрку в дебагерi.
+Reading symbols from a.out...done.
+(gdb) b 11
+Breakpoint 1 at 0x115c: file main.c, line 12.
+(gdb) b 21
+Breakpoint 2 at 0x118f: file main.c, line 22.
+(gdb) b 31
+Breakpoint 3 at 0x11b1: file main.c, line 31.
+(gdb) r
+Starting program: /home/maxim/programing-ptashnik/labs/lab05/src/a.out 
+
+Breakpoint 1, main () at main.c:12
+12              result = 1;
+(gdb) p result
+$1 = 50400
+(gdb) c
+Continuing.
+
+Breakpoint 2, main () at main.c:22
+22              result = 1;
+(gdb) p result
+$2 = 50400
+(gdb) c
+Continuing.
+
+Breakpoint 3, main () at main.c:31
+31              result = 10 * result;
+(gdb) n
+33              return 0;
+(gdb) p result
+$3 = 50400
+(gdb) q
+Висновок: Я навчився робити программи з циклічніми конструкціями.
+
